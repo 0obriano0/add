@@ -21,9 +21,10 @@ void num_add(char *s1,char *s2,int index){
 	int backnum1=index - getstringlength(s1) - 1;
 	int backnum2=index - getstringlength(s2) - 1;
 	int minnum;
+	int maxnum;
 	for(int loopnum2 = index-1;loopnum2 >= 0; loopnum2--){
 		
-	} 
+	}
 }
 
 int getstringlength(char *s){
