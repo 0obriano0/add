@@ -4,11 +4,12 @@
 void num_add(char *s1,char *s2,int index);
 int getstringlength(char *s);
 bool check_string_all_for_num(char *s);
+void show_num(int space,int index,char *s);
 
 int main(){
 	int longnum = 100;
 	while(1){
-		printf("--------------------------------------------膀セ计--------------------------------------------\n");
+		printf("----------------------------------------------------膀セ计----------------------------------------------------\n");
 		char str[2][longnum+1];
 		str[0][longnum] = '\0';
 		str[1][longnum] = '\0';
@@ -43,15 +44,15 @@ void num_add(char *s1,char *s2,int index){
 		str[loopnum2+1] = (str[loopnum2+2]-10) > -1 ?'1':'0';
 		str[loopnum2+2] = str[loopnum2+1] == '1' ? (str[loopnum2+2]-10 + '0') : (str[loopnum2+2] - 0 + '0');
 	}
-	printf("\n盢ㄢ计\n----------------------------------------------------------\n氮:\n    ");
-	bool zeroOver = false;
-	for(int loopnum3 = 1;loopnum3 <= index+1;loopnum3++){
-		if(str[loopnum3]!='0' || zeroOver){
-			zeroOver = true;
-			printf("%c",str[loopnum3]);
-		}
-	}
-	printf("\n\n\n");
+	printf("\n盢ㄢ计\n--------------------------------------------------------------------------------------------------------------------\n\n\n");
+	int maxnum = backnum1 > backnum2? backnum1 : backnum2;
+	show_num(4+maxnum-backnum1,backnum1,s1);
+	printf("+ )");
+	show_num(1+maxnum-backnum2,backnum2,s2);
+	printf("--------------------------------------------------------------------------------------------------------------------\n");
+	printf("=");
+	show_num(3,index+1,str+1);
+	printf("\n\n");
 }
 
 int getstringlength(char *s){
@@ -77,4 +78,18 @@ bool check_string_all_for_num(char *s){
 		num1++;
 	}
 	return num;
+}
+
+void show_num(int space,int index,char *s){
+	for(int loopnum4 = 1;loopnum4 <= space;loopnum4++){
+		printf(" ");
+	}
+	int zeroOver = false;
+	for(int loopnum5 = 0;loopnum5 <= index-1;loopnum5++){
+		if(*(s+loopnum5)!='0' || zeroOver){
+			zeroOver = true;
+			printf("%c",*(s+loopnum5));
+		}
+	}
+	printf("\n");
 }
