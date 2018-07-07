@@ -51,7 +51,7 @@ void num_add(char *s1,char *s2,int index){
 	show_num(1+maxnum-backnum2,backnum2,s2);
 	printf("--------------------------------------------------------------------------------------------------------------------\n");
 	printf("=");
-	show_num(3,index+1,str+1);
+	show_num(3-(str[1]=='1'?1:0),index+1,str+1);
 	printf("\n\n");
 }
 
